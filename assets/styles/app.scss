@@ -2,6 +2,19 @@
     font-family: 'Merienda', cursive;
 }
 
-body {
-    background-color: lightgray;
+.bg-bar {
+    background-color: #025464;
+    height: 60px;
+    border-bottom: 10px solid #E57C23;
+}
+
+.bg-bar:after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -20px;
+    background: #E8AA42;
+    z-index: -1;
 }
