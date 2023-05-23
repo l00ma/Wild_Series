@@ -1,8 +1,13 @@
+@import "~bootstrap/scss/bootstrap";
+
+// customize some Bootstrap variables
+$primary: darken(#428bca, 20%);
+
 :root {
     font-family: 'Merienda', cursive;
 }
 
-.bg-bar {
+.navbar {
     background-color: #025464;
     height: 60px;
     border-bottom: 10px solid #E57C23;
