@@ -3,14 +3,23 @@
 // customize some Bootstrap variables
 $primary: darken(#428bca, 20%);
 
-:root {
-    font-family: 'Merienda', cursive;
+body {
+    background-color: #F8F1F1;
+}
+
+h1 {
+    font-size: 18px;
+}
+
+h2 {
+    font-size: 15px;
 }
 
 .navbar {
     background-color: #025464;
     height: 60px;
     border-bottom: 10px solid #E57C23;
+    font-family: 'Merienda', cursive;
 }
 
 .bg-bar:after {
@@ -22,4 +31,8 @@ $primary: darken(#428bca, 20%);
     bottom: -20px;
     background: #E8AA42;
     z-index: -1;
+}
+
+.nav-link {
+    font-size: small;
 }
