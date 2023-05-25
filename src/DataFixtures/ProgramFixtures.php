@@ -10,11 +10,11 @@ use Doctrine\Persistence\ObjectManager;
 class ProgramFixtures extends Fixture implements DependentFixtureInterface
 {
     const PROGRAM = [
-        ['FBI', 'Suivez le quotidien des agents spéciaux de la branche new-yorkaise du F.B.I.', 'https://artworks.thetvdb.com/banners/posters/5b7dd59bd6c65.jpg', 'category_Policier'],
-        ['Barry', 'Un ex-Marine devenu tueur à gages au rabais se rend à Los Angeles pour exécuter un contrat. Il rencontre des théâtreux résolument optimistes et se découvre une vocation d\'acteur.', 'https://artworks.thetvdb.com/banners/posters/333072-3.jpg', 'category_Drame'],
-        ['Good Girls', 'Trois mères de famille bien comme il faut orchestrent le casse d\'un supermarché pour échapper à la ruine et accéder à l\'indépendance. Toutes pour une, et une pour toutes.', 'https://artworks.thetvdb.com/banners/posters/328577-4.jpg', 'category_Drame'],
-        ['Or de lui', 'Joseph est VRP dans une petite PME de banlieue. Sa vie se résume à : voiture - boulot - voiture - dîner avec une femme qui ne l’aime plus - dodo. Et rien ne présage que les choses évoluent pour lui. Jusqu’au jour où, par miracle, il commence à pondre… de l’or.', 'https://artworks.thetvdb.com/banners/v4/series/383785/posters/618d0614063ff.jpg', 'category_Humour'],
-        ['Outer Banks', 'Sur une île où les inégalités sont accentuées, John B recrute ses trois meilleurs amis pour partir à la recherche d\'un trésor légendaire lié à la disparition de son père.', 'https://artworks.thetvdb.com/banners/series/379169/posters/5f3f6b28c81ce.jpg', 'category_Aventure'],
+        ['FBI', 'Suivez le quotidien des agents spéciaux de la branche new-yorkaise du F.B.I.', 'https://artworks.thetvdb.com/banners/posters/5b7dd59bd6c65.jpg', 'category_Policier', '0'],
+        ['Barry', 'Un ex-Marine devenu tueur à gages au rabais se rend à Los Angeles pour exécuter un contrat. Il rencontre des théâtreux résolument optimistes et se découvre une vocation d\'acteur.', 'https://artworks.thetvdb.com/banners/posters/333072-3.jpg', 'category_Drame', '1'],
+        ['Good Girls', 'Trois mères de famille bien comme il faut orchestrent le casse d\'un supermarché pour échapper à la ruine et accéder à l\'indépendance. Toutes pour une, et une pour toutes.', 'https://artworks.thetvdb.com/banners/posters/328577-4.jpg', 'category_Drame', '2'],
+        ['Or de lui', 'Joseph est VRP dans une petite PME de banlieue. Sa vie se résume à : voiture - boulot - voiture - dîner avec une femme qui ne l’aime plus - dodo. Et rien ne présage que les choses évoluent pour lui. Jusqu’au jour où, par miracle, il commence à pondre… de l’or.', 'https://artworks.thetvdb.com/banners/v4/series/383785/posters/618d0614063ff.jpg', 'category_Humour', '3'],
+        ['Outer Banks', 'Sur une île où les inégalités sont accentuées, John B recrute ses trois meilleurs amis pour partir à la recherche d\'un trésor légendaire lié à la disparition de son père.', 'https://artworks.thetvdb.com/banners/series/379169/posters/5f3f6b28c81ce.jpg', 'category_Aventure', '4'],
 
     ];
 
