@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\ProgramType;
 use App\Repository\ProgramRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ProgramController extends AbstractController
@@ -34,9 +36,6 @@ class ProgramController extends AbstractController
     #[Route('/program/{programId<^[0-9]+$>}/season/{seasonId<^[0-9]+$>}', methods: ['GET'], name: 'season_show')]
     public function showSeason(Season $seasonId): Response
     {
-        //$season = $seasonRepository->findOneBy(['id' => $seasonId]);
-        $program = $seasonId->getProgram();
-        $episodes = $seasonId->getEpisodes();
 
         return $this->render('program/season_show.html.twig', [
             'season' => $seasonId,
@@ -44,11 +43,30 @@ class ProgramController extends AbstractController
     }
 
     #[Route('/program/{programId<^[0-9]+$>}/season/{seasonId<^[0-9]+$>}/episode/{episodeId<^[0-9]+$>}', methods: ['GET'], name: 'program_episode_show')]
-    public function showEpisode(Program $programId, Season $seasonId, Episode $episodeId)
+    public function showEpisode(Episode $episodeId): Response
     {
-        $program = $episodeId->getSeason()->getProgram();
+
         return $this->render('program/episode_show.html.twig', [
             'episode' => $episodeId,
+        ]);
+    }
+
+    #[Route('program/new', name: 'new')]
+    public function new(Request $request, ProgramRepository $programRepository): Response
+    {
+        $program = new Program();
+        $form = $this->createForm(ProgramType::class, $program);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $programRepository->save($program, true);
+            $this->addFlash('success', 'Série crée avec succès');
+
+            return $this->redirectToRoute('program_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('program/new.html.twig', [
+            'form' => $form,
         ]);
     }
 }

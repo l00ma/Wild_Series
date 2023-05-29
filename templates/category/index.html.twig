@@ -5,21 +5,28 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Toutes les catégories du site :
-	</h1>
-	{% for category in categories %}
-		<div>
-			<h2>{{ loop.index }}
-				/
-				{{ category.name }}</h2>
-			<p></p>
-			<a href="{{ path('category_show', { categoryName: category.name }) }}">Voir les series</a>
-		</div>
-	{% else %}
-		Aucune catégorie trouvée.
-	{% endfor %}
+	<div class="container">
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+		<h1>Toutes les catégories du site :
+		</h1>
+		{% for category in categories %}
+			<div>
+				<h2>{{ loop.index }}
+					/
+					{{ category.name }}</h2>
+				<a href="{{ path('category_show', { categoryName: category.name }) }}">Voir les series</a>
+				<p></p>
+			</div>
+		{% else %}
+			Aucune catégorie trouvée.
+		{% endfor %}
 
-	<a href="{{ path('app_index') }}">
-		Retour à l'accueil
-	</a>
+		<a href="{{ path('app_index') }}">
+			Retour à l'Accueil
+		</a>
+	</div>
 {% endblock %}

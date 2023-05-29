@@ -5,15 +5,27 @@
 
 {% block body %}
 	<div class="container">
-		<h1>{{ episode.season.program.title }}
-			- Saison
-			{{ episode.season.number }}
-			- Episode
-			{{ episode.number }}</h1>
-		<p>synopsis
-			{{ episode.synopsis }}</p>
-		<a href="{{ path('season_show', { programId: episode.season.program.id, seasonId: episode.season.id }) }}">
-			Retour à la liste des Episodes
-		</a>
-	</div>
-{% endblock %}
+		<div class="row">
+			<div class="col">
+				<img class="image-show" src="{{ asset('build/images/' ~ episode.season.program.poster) }}" alt="{{ episode.season.program.title }} poster">
+			</div>
+			<div class="col">
+				<h1>{{ episode.season.program.title }}
+					- Saison
+					{{ episode.season.number }}
+					- Episode
+					{{ episode.number }}</h1>
+				<p>Année:
+					{{ episode.season.year }}</p>
+				<p>Titre:
+					{{ episode.title }}</p>
+				<p>Synopsis:
+					{{ episode.synopsis }}</p>
+			</div>
+			<div class="return">
+				<a href="{{ path('season_show', { programId: episode.season.program.id, seasonId: episode.season.id }) }}">
+					Retour à la liste des Episodes
+				</a>
+			</div>
+		</div>
+	{% endblock %}
