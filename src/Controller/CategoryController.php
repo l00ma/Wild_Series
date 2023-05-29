@@ -24,18 +24,12 @@ class CategoryController extends AbstractController
     #[Route('/category/new', name: 'category_new')]
     public function new(Request $request, CategoryRepository $categoryRepository): Response
     {
-        // Create a new Category Object
         $category = new Category();
-        // Create the associated Form
         $form = $this->createForm(CategoryType::class, $category);
-        // Get data from HTTP request
         $form->handleRequest($request);
-        // Was the form submitted ?
-        if ($form->isSubmitted()) {
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $categoryRepository->save($category, true);
-            // Deal with the submitted data
-            // For example : persiste & flush the entity
-            // And redirect to a route that display the result
             $this->addFlash('success', 'Catégorie crée avec succès');
 
             return $this->redirectToRoute('category_index', [], Response::HTTP_SEE_OTHER);

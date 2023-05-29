@@ -5,11 +5,11 @@
 
 {% block body %}
 	<div class="container">
-		<h1>Edit Episode</h1>
+		<h1>Editer Episode S{{ "%02d"|format(episode.season.number) }}-E{{ "%02d"|format(episode.number) }}</h1>
 
-		{{ include('episode/_form.html.twig', {'button_label': 'Update'}) }}
+		{{ include('episode/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-		<a href="{{ path('app_episode_index') }}">back to list</a>
+		<a href="{{ path('app_episode_index') }}" class="btn btn-primary btn-sm">Retour à la liste</a>
 
 		{{ include('episode/_delete_form.html.twig') }}
 	</div>

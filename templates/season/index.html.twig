@@ -4,14 +4,17 @@
 
 {% block body %}
 	<div class="container">
-		<h1>Season index</h1>
+		<div class="return">
+			<a href="{{ path('season_new') }}" class="btn btn-primary btn-sm">Créer nouvelle saison</a>
+		</div>
+		<h1>Index des saisons</h1>
 
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Id</th>
-					<th>Number</th>
-					<th>Year</th>
+					<th>Serie</th>
+					<th>Saison N°</th>
+					<th>Année</th>
 					<th>Description</th>
 					<th>actions</th>
 				</tr>
@@ -19,13 +22,13 @@
 			<tbody>
 				{% for season in seasons %}
 					<tr>
-						<td>{{ season.id }}</td>
+						<td>{{ season.program.title }}</td>
 						<td>{{ season.number }}</td>
 						<td>{{ season.year }}</td>
 						<td>{{ season.description }}</td>
 						<td>
-							<a href="{{ path('season_show', {'id': season.id}) }}">show</a>
-							<a href="{{ path('season_edit', {'id': season.id}) }}">edit</a>
+							<a href="{{ path('season_show', {'id': season.id}) }}" class="btn btn-primary btn-sm">Voir</a>
+							<a href="{{ path('season_edit', {'id': season.id}) }}" class="btn btn-primary btn-sm">Editer</a>
 						</td>
 					</tr>
 				{% else %}
@@ -35,7 +38,5 @@
 				{% endfor %}
 			</tbody>
 		</table>
-
-		<a href="{{ path('season_new') }}">Create new</a>
 	</div>
 {% endblock %}

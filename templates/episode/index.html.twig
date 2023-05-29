@@ -4,14 +4,16 @@
 
 {% block body %}
 	<div class="container">
-		<h1>Episode index</h1>
-
+		<h1>Index des épisodes</h1>
+		<div class="return">
+			<a href="{{ path('app_episode_new') }}" class="btn btn-primary btn-sm">Créer un nouvel épisode</a>
+		</div>
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Id</th>
-					<th>Title</th>
-					<th>Number</th>
+					<th>Série</th>
+					<th>Titre</th>
+					<th>Episode N°</th>
 					<th>Synopsis</th>
 					<th>actions</th>
 				</tr>
@@ -19,13 +21,13 @@
 			<tbody>
 				{% for episode in episodes %}
 					<tr>
-						<td>{{ episode.id }}</td>
+						<td>{{ episode.season.program.title }}</td>
 						<td>{{ episode.title }}</td>
-						<td>{{ episode.number }}</td>
+						<td>S{{ "%02d"|format(episode.season.number)}}-E{{ "%02d"|format(episode.number) }}</td>
 						<td>{{ episode.synopsis }}</td>
 						<td>
-							<a href="{{ path('app_episode_show', {'id': episode.id}) }}">show</a>
-							<a href="{{ path('app_episode_edit', {'id': episode.id}) }}">edit</a>
+							<a href="{{ path('app_episode_show', {'id': episode.id}) }}" class="btn btn-primary btn-sm">Voir</a>
+							<a href="{{ path('app_episode_edit', {'id': episode.id}) }}" class="btn btn-primary btn-sm">Editer</a>
 						</td>
 					</tr>
 				{% else %}
@@ -35,7 +37,5 @@
 				{% endfor %}
 			</tbody>
 		</table>
-
-		<a href="{{ path('app_episode_new') }}">Create new</a>
 	</div>
 {% endblock %}

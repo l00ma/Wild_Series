@@ -12,13 +12,13 @@
 					{{ program.title }}</h2>
 				<p>{{ program.synopsis }}</p>
 				{# Lien vers la fiche de la série : #}
-				<a href="{{ path('program_show', { id: program.id }) }}">Voir la fiche</a>
+				<a href="{{ path('program_show', { id: program.id }) }}" class="btn btn-primary btn-sm">Voir la fiche</a>
 			</div>
 		{% else %}
 			Aucune série trouvée.
 		{% endfor %}
 
-		<a href="{{ path('app_index') }}">
+		<a href="{{ path('app_index') }}" class="btn btn-primary btn-sm">
 			Retour à l'Accueil
 		</a>
 	</div>
