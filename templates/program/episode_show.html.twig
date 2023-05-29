@@ -23,7 +23,7 @@
 					{{ episode.synopsis }}</p>
 			</div>
 			<div class="return">
-				<a href="{{ path('season_show', { programId: episode.season.program.id, seasonId: episode.season.id }) }}">
+				<a href="{{ path('program_season_show', { programId: episode.season.program.id, seasonId: episode.season.id }) }}">
 					Retour à la liste des Episodes
 				</a>
 			</div>

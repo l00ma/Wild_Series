@@ -21,27 +21,7 @@ class CategoryController extends AbstractController
         ]);
     }
 
-    #[Route('/category/{categoryName}', methods: ['GET'], name: 'category_show')]
-    public function show(string $categoryName, CategoryRepository $categoryRepository): Response
-    {
-        $category = $categoryRepository->findOneBy(['name' => $categoryName]);
-
-        if (!$category) {
-            throw $this->createNotFoundException(
-                'Category ' . $categoryName . ' doesn\'t exist.'
-            );
-        }
-
-        $programs = $category->getPrograms();
-        //$programs = $programRepository->findBy(['category' => $category->getId()], ['id' => 'ASC'], 3, 0);
-
-        return $this->render('category/show.html.twig', [
-            'category' => $category,
-            'programs' => $programs,
-        ]);
-    }
-
-    #[Route('/category/new', name: 'new')]
+    #[Route('/category/new', name: 'category_new')]
     public function new(Request $request, CategoryRepository $categoryRepository): Response
     {
         // Create a new Category Object
@@ -64,6 +44,26 @@ class CategoryController extends AbstractController
         // Render the form
         return $this->render('category/new.html.twig', [
             'form' => $form,
+        ]);
+    }
+
+    #[Route('/category/{categoryName}', methods: ['GET'], name: 'category_show')]
+    public function show(string $categoryName, CategoryRepository $categoryRepository): Response
+    {
+        $category = $categoryRepository->findOneBy(['name' => $categoryName]);
+
+        if (!$category) {
+            throw $this->createNotFoundException(
+                'Category ' . $categoryName . ' doesn\'t exist.'
+            );
+        }
+
+        $programs = $category->getPrograms();
+        //$programs = $programRepository->findBy(['category' => $category->getId()], ['id' => 'ASC'], 3, 0);
+
+        return $this->render('category/show.html.twig', [
+            'category' => $category,
+            'programs' => $programs,
         ]);
     }
 }

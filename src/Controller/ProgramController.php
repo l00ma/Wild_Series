@@ -24,33 +24,6 @@ class ProgramController extends AbstractController
         ]);
     }
 
-    #[Route('/program/{id<^[0-9]+$>}', methods: ['GET'], name: 'program_show')]
-    public function show(Program $program): Response
-    {
-
-        return $this->render('program/show.html.twig', [
-            'program' => $program,
-        ]);
-    }
-
-    #[Route('/program/{programId<^[0-9]+$>}/season/{seasonId<^[0-9]+$>}', methods: ['GET'], name: 'season_show')]
-    public function showSeason(Season $seasonId): Response
-    {
-
-        return $this->render('program/season_show.html.twig', [
-            'season' => $seasonId,
-        ]);
-    }
-
-    #[Route('/program/{programId<^[0-9]+$>}/season/{seasonId<^[0-9]+$>}/episode/{episodeId<^[0-9]+$>}', methods: ['GET'], name: 'program_episode_show')]
-    public function showEpisode(Episode $episodeId): Response
-    {
-
-        return $this->render('program/episode_show.html.twig', [
-            'episode' => $episodeId,
-        ]);
-    }
-
     #[Route('program/new', name: 'new')]
     public function new(Request $request, ProgramRepository $programRepository): Response
     {
@@ -67,6 +40,32 @@ class ProgramController extends AbstractController
 
         return $this->render('program/new.html.twig', [
             'form' => $form,
+        ]);
+    }
+
+    #[Route('/program/{id<^[0-9]+$>}', methods: ['GET'], name: 'program_show')]
+    public function show(Program $program): Response
+    {
+        return $this->render('program/show.html.twig', [
+            'program' => $program,
+        ]);
+    }
+
+    #[Route('/program/{programId<^[0-9]+$>}/season/{seasonId<^[0-9]+$>}', methods: ['GET'], name: 'program_season_show')]
+    public function showSeason(Season $seasonId): Response
+    {
+
+        return $this->render('program/season_show.html.twig', [
+            'season' => $seasonId,
+        ]);
+    }
+
+    #[Route('/program/{programId<^[0-9]+$>}/season/{seasonId<^[0-9]+$>}/episode/{episodeId<^[0-9]+$>}', methods: ['GET'], name: 'program_episode_show')]
+    public function showEpisode(Episode $episodeId): Response
+    {
+
+        return $this->render('program/episode_show.html.twig', [
+            'episode' => $episodeId,
         ]);
     }
 }
