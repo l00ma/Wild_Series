@@ -32,7 +32,7 @@ class CategoryController extends AbstractController
             $categoryRepository->save($category, true);
             $this->addFlash('success', 'Catégorie crée avec succès');
 
-            return $this->redirectToRoute('category_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('category_index');
         }
 
         // Render the form

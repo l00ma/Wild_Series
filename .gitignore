@@ -8,6 +8,8 @@
 /public/adminer.php
 /var/
 /vendor/
+/assets/images/
+/assets/videos/
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###

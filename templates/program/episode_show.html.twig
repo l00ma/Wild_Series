@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Episode #{{ episode.number }}
+{% block title %}
+	{{ episode.season.program.title }}
+	S{{ "%02d"|format(episode.season.number) }}-E{{ "%02d"|format(episode.number) }}
 {% endblock %}
 
 {% block body %}
@@ -12,9 +14,9 @@
 			<div class="col">
 				<h1>{{ episode.season.program.title }}
 					- Saison
-					{{ episode.season.number }}
+					{{ "%02d"|format(episode.season.number) }}
 					- Episode
-					{{ episode.number }}</h1>
+					{{ "%02d"|format(episode.number) }}</h1>
 				<p>Année:
 					{{ episode.season.year }}</p>
 				<p>Titre:
@@ -23,7 +25,7 @@
 					{{ episode.synopsis }}</p>
 			</div>
 			<div class="return">
-				<a href="{{ path('program_season_show', { programId: episode.season.program.id, seasonId: episode.season.id }) }}">
+				<a href="{{ path('program_season_show', { programId: episode.season.program.id, seasonId: episode.season.id }) }}" class="btn btn-primary btn-sm">
 					Retour à la liste des Episodes
 				</a>
 			</div>

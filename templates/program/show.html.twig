@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
-{% block title %}Série #{{ program.id }}
+{% block title %}Série:
+	{{program.title}}(id:{{ program.id }})
 {% endblock %}
 
 {% block body %}
 	<div class="container">
-		<div class="media">
+		<div>
 			<div class="row">
-				<div class="col">
+				<div class="col-lg-3">
 					<img class="image-show" src="{{ asset('build/images/' ~ program.poster) }}" alt="{{ program.title }} poster">
 				</div>
-				<div class="col media-body">
+				<div class="col-lg-3">
 					<h1 class="mt-0">{{ program.title }}</h1>
 					<p>{{ program.synopsis }}</p>
 
@@ -19,7 +20,7 @@
 							{% for season in program.seasons %}
 								<li>Saison
 									<a href="{{ path('program_season_show', { programId: program.id, seasonId: season.id }) }}">
-										{{ season.number }}
+										{{ "%02d"|format(season.number) }}
 									</a>
 								</li>
 							{% endfor %}
@@ -29,12 +30,25 @@
 						<a href="{{ path('category_show', { categoryName: program.category.name }) }}">{{ program.category.name }}</a>
 					</p>
 				</div>
+				<div class="col-lg-6">
+					<h1>Trailer</h1>
+					<div class="video-container">
+						<video id="player" playsinline controls data-poster="{{ asset('build/images/barry.jpg') }}">
+							<source src="{{ asset('build/videos/barry.mp4') }}" type="video/mp4"/>
+						</video>
+					</div>
+				</div>
 			</div>
 		</div>
+
 		<div class="return">
-			<a href="{{ path('program_index') }}">
+			<a href="{{ path('program_index') }}" class="btn btn-primary btn-sm">
 				Retour à la liste des Programmes
 			</a>
 		</div>
 	</div>
+	<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+	<script>
+		const player = new Plyr('#player');
+	</script>
 {% endblock %}

@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Saison #{{ season.number }}
+{% block title %}
+	{{ season.program.title }}
+	S{{ "%02d"|format(season.number)  }}
 {% endblock %}
 
 {% block body %}
@@ -12,7 +14,7 @@
 			<div class="col">
 				<h1>{{season.program.title }}
 					- Saison
-					{{ season.number }}</h1>
+					{{ "%02d"|format(season.number) }}</h1>
 				<p>Année:
 					{{ season.year}}</p>
 				<p>{{ season.description}}</p>
@@ -22,7 +24,7 @@
 						{% for episode in season.episodes %}
 							<li>Episode
 								<a href="{{ path('program_episode_show', { programId: season.program.id, seasonId: season.id, episodeId: episode.id }) }}">
-									{{ episode.number }}
+									{{ "%02d"|format(episode.number) }}
 								</a>
 							</li>
 						{% endfor %}

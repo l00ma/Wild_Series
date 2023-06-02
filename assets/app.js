@@ -11,7 +11,7 @@ import './styles/app.scss';
 // start the Stimulus application
 import './bootstrap';
 
-// include bootstrap CSS
+// include bootstrap JS
 require('bootstrap');
 
 // or you can include specific pieces

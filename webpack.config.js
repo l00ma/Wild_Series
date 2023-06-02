@@ -18,6 +18,11 @@ Encore
 
         // only copy files matching this pattern
         //pattern: /\.(png|jpg|jpeg)$/
+        // optional target path, relative to the output dir
+    })
+    .copyFiles({
+        from: './assets/videos',
+        to: 'videos/[path][name].[ext]',
     })
     // public path used by the web server to access the output path
     .setPublicPath('/build')

@@ -35,7 +35,7 @@ class ProgramController extends AbstractController
             $programRepository->save($program, true);
             $this->addFlash('success', 'Série crée avec succès');
 
-            return $this->redirectToRoute('program_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('program_index');
         }
 
         return $this->render('program/new.html.twig', [

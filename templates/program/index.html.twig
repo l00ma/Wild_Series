@@ -1,15 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}All programs
+{% block title %}Toutes les séries
 {% endblock %}
 
 {% block body %}
 	<div class="container">
-		{% for message in app.flashes('success') %}
-			<div class="alert alert-success">
-				{{ message }}
-			</div>
-		{% endfor %}
 		<h1>Toutes les séries:
 		</h1>
 		<div class="row">
@@ -32,7 +27,7 @@
 			{% endfor %}
 		</div>
 		<div class="return">
-			<a href="{{ path('app_index') }}">
+			<a href="{{ path('app_index') }}" class="btn btn-primary btn-sm">
 				Retour à l'Accueil
 			</a>
 		</div>

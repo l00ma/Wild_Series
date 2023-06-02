@@ -17,7 +17,7 @@ class SeasonType extends AbstractType
             ->add('number', TextType::class, ['label' => 'Numero'])
             ->add('year', IntegerType::class, ['label' => 'Année'])
             ->add('description', TextType::class, ['label' => 'Résumé'])
-            ->add('program', null, ['choice_label' => 'title']);
+            ->add('program', null, ['choice_label' => 'title', 'label' => 'Série']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

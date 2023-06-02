@@ -1,4 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
+@import "plyr.scss";
+
 
 // customize some Bootstrap variables
 $primary: darken(#428bca, 20%);
@@ -38,10 +40,16 @@ h2 {
 }
 
 .image-show {
-    width: 50%;
+    width: 90%;
     height: auto;
 }
 
 .return {
     text-align: center;
+}
+
+.video-container {
+    max-width: 90%;
+    border-radius: 15px;
+    overflow: hidden;
 }
